@@ -1,5 +1,7 @@
+import os
 # Set initial greating and input request from Player 1
-word = input("Welcome to Spaceman: Hangman for the 21st century. \nTo begin, player 1 should please enter a word: ")
+os.system("clear")
+word = str.upper(input("Welcome to Spaceman: Hangman for the 21st century. \nTo begin, player 1 should please enter a word: "))
 
 # Set intial arrays: the word that will be shown, the guesses, and the number of chances remaining
 shownWord = []
@@ -14,13 +16,19 @@ def hide_word():
         shownWord.append("_")
 
 # Request user input from Player 2
+# Adding function to check if guess is valid here
+# Adding function to make all guesses uppercase
 def get_character():
     global pastGuesses
     global currentGuess
-    print("Enter your guess.")
-    guess = input(">>>")
-    currentGuess = guess
-    pastGuesses.append(guess)
+    waitingForValidGuess = True
+    while waitingForValidGuess == True:
+        print("Guess a valid letter.")
+        guess = str.upper(input(">>>"))
+        if guess.isalpha() and len(guess) == 1 and guess not in pastGuesses:
+            currentGuess = guess
+            pastGuesses.append(guess)
+            waitingForValidGuess = False
 
 
 
@@ -41,9 +49,11 @@ def check_and_show_guess():
 
 # Function with all the methods to play game a turn
 def play_turn():
-    print(''.join(pastGuesses))
+    os.system('clear')
+    # drawing.draw_spaceman(lives)
+    print("Past guesses: " + ', '.join(pastGuesses))
     print("Lives remaining: " + str(lives))
-    print(''.join(shownWord))
+    print(' '.join(shownWord))
     get_character()
     check_and_show_guess()
     # Compare guess with word
