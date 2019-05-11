@@ -16,3 +16,8 @@ If all 7 parts of the Spaceman are drawn then the player loses the game.
 - If hidden word contains no underscores, players wins game
 - If lives == 0, game over
 - If lives > 0 and game is not over, play another turn
+
+## Refactor Plan:
+- Review duplicate code?
+- Implementing a Spaceman class, converting functions to class methods
+- Modify naming to improve semantics
