@@ -13,31 +13,11 @@ class Spaceman():
         self.pastGuesses = []
         self.currentGuess = ""
 
-    def get_input(self):
-        pass
-
     def hide_word(self):
         for char in self.word:
             self.shownWord.append("_")
 
-
-# Set intial arrays: the word that will be shown, the guesses, and the number of chances remaining
-# shownWord = []
-# pastGuesses = []
-# currentGuess = ""
-# lives = 7
-
-# Hide the word from Player 2
-
-
-# Request user input from Player 2
-# Adding function to check if guess is valid here
-# Adding function to make all guesses uppercase
-
-
     def get_character(self):
-        # global pastGuesses
-        # global currentGuess
         waitingForValidGuess = True
         while waitingForValidGuess == True:
             print("Guess a valid letter.")
@@ -47,9 +27,6 @@ class Spaceman():
                 self.pastGuesses.append(guess)
                 waitingForValidGuess = False
 
-    # Run through each letter in word. Adding method to remove lives in this function
-    # to take advantage of
-    # Working on!
     def check_and_show_guess(self):
         correctGuess = False
         for index, value in enumerate(self.word):
@@ -58,9 +35,6 @@ class Spaceman():
                 correctGuess = True
         if correctGuess == False:
             self.lives -= 1
-        # return shownWord
-
-    # Function with all the methods to play game a turn
 
     def play_turn(self):
         os.system('clear')
@@ -94,8 +68,3 @@ while game.running:
 def test():
     hide_word()
     play_turn()
-    # print(''.join(shownWord))
-    # print(lives)
-    # play_turn()
-    # print(''.join(shownWord))
-    # print(lives)
